@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ByteByteGo – My Courses (Offline)</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; color: #1a1a1a; min-height: 100vh; }
+
+    /* Header */
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .site-header .logo {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #111;
+      letter-spacing: -0.02em;
+    }
+    .site-header .logo span { color: #2563eb; }
+    .site-header .badge {
+      margin-left: 0.75rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: #f0f4ff;
+      color: #2563eb;
+      border: 1px solid #c7d7fe;
+      border-radius: 4px;
+      padding: 0.15em 0.5em;
+      vertical-align: middle;
+    }
+
+    /* Main */
+    .page-main { max-width: 1140px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+    .page-title { font-size: 1.5rem; font-weight: 700; color: #111; margin-bottom: 0.35rem; }
+    .page-subtitle { font-size: 0.9rem; color: #666; margin-bottom: 2rem; }
+
+    /* Grid */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Card */
+    .course-card {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e8e8e8;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.18s, transform 0.18s;
+    }
+    .course-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      transform: translateY(-2px);
+    }
+
+    /* Thumbnail */
+    .course-thumb {
+      width: 100%;
+      overflow: hidden;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .course-thumb img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .course-thumb-placeholder {
+      background: linear-gradient(135deg, #1e1e2e 0%, #2a2a45 100%);
+    }
+
+    /* Info section */
+    .course-info { padding: 1rem 1.1rem 1.2rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
+    .course-title { font-size: 0.95rem; font-weight: 700; color: #111; line-height: 1.35; }
+    .course-meta { font-size: 0.78rem; color: #888; }
+
+    @media (max-width: 600px) {
+      .courses-grid { grid-template-columns: 1fr; }
+      .page-main { padding: 1.5rem 1rem 3rem; }
+    }
+
+    /* Dark mode toggle */
+    .dark-toggle {
+      position: fixed; top: 16px; right: 20px; z-index: 999;
+      background: #e5e7eb; border: 1px solid #d1d5db; border-radius: 20px;
+      width: 44px; height: 24px; cursor: pointer; padding: 0;
+      transition: background 0.25s;
+    }
+    .dark-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 18px; height: 18px; border-radius: 50%; background: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2); transition: transform 0.25s;
+    }
+    body.dark .dark-toggle { background: #6366f1; border-color: #818cf8; }
+    body.dark .dark-toggle::after { transform: translateX(20px); }
+    body.dark { background: #1e1e2e; color: #d4d4d8; }
+    body.dark .site-header { background: #252535; border-bottom-color: #3f3f5a; }
+    body.dark .site-header .logo { color: #e4e4e7; }
+    body.dark .site-header .badge { background: #2a2a45; color: #93b4f5; border-color: #4f4f6a; }
+    body.dark .page-title { color: #e4e4e7; }
+    body.dark .page-subtitle { color: #8888a0; }
+    body.dark .course-card { background: #252535; border-color: #3f3f5a; }
+    body.dark .course-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
+    body.dark .course-thumb { border-bottom-color: #3f3f5a; }
+    body.dark .course-title { color: #e4e4e7; }
+    body.dark .course-meta { color: #8888a0; }
+  </style>
+</head>
+<body>
+  <script>if(localStorage.getItem('bbg-dark')==='1')document.body.classList.add('dark');</script>
+  <header class="site-header">
+    <span class="logo">Byte<span>ByteGo</span></span>
+    <span class="badge">Offline</span>
+  </header>
+  <button class="dark-toggle" title="Toggle dark mode" aria-label="Toggle dark mode" onclick="document.body.classList.toggle('dark');localStorage.setItem('bbg-dark',document.body.classList.contains('dark')?'1':'0')"></button>
+  <main class="page-main"><div id="encrypted-content" style="display:none">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</div><div id="decrypting-msg" style="text-align:center;padding:4rem 2rem;color:#888;">Verifying access...</div></main>
+
+<script src="/assets/js/auth.js"></script></body></html>

@@ -1,0 +1,17 @@
+{
+  "name": "bytebytego-scraper",
+  "version": "1.0.0",
+  "description": "ByteByteGo course scraper for local offline replica",
+  "main": "scraper.js",
+  "scripts": {
+    "save-session": "node save-session.js",
+    "scrape": "node scraper.js",
+    "serve": "npx serve course-replica"
+  },
+  "dependencies": {
+    "cheerio": "1.0.0-rc.12",
+    "playwright": "^1.44.0",
+    "axios": "^1.7.0",
+    "fs-extra": "^11.2.0"
+  }
+}

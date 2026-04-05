@@ -1,0 +1,176 @@
+{
+  "cookies": [
+    {
+      "name": "__cf_bm",
+      "value": "6ThvxDBs6PFO0_KuVF4LXdxZmoifX_99WZR5SjHVMFI-1775156832-1.0.1.1-tuJgS5kgX2mEJbPe1SmXTjlxKQJszHg9WyySlNnJx99ptOptEewto.HnA9InnaUfZIazBEdmp2LZ4VDgkO80WI0hFq2nNUUxkEwWw5ytpgk",
+      "domain": ".paddle.com",
+      "path": "/",
+      "expires": 1775158631.914601,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "cookieyes-consent",
+      "value": "consentid:RjNFckE0aDRodE5BSDdBSTd0ZVRNMVZWMnd6bFBFZEY,consent:yes,action:no,necessary:yes,functional:yes,analytics:yes,performance:yes,advertisement:yes,other:yes",
+      "domain": "bytebytego.com",
+      "path": "/",
+      "expires": 1806692832,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.1.1457313738.1775156833",
+      "domain": ".bytebytego.com",
+      "path": "/",
+      "expires": 1809716833.202366,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_fbp",
+      "value": "fb.1.1775156833457.942058420999682692",
+      "domain": ".bytebytego.com",
+      "path": "/",
+      "expires": 1782932886,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gcl_au",
+      "value": "1.1.431393028.1775156832.954244928.1775156859.1775156858",
+      "domain": ".bytebytego.com",
+      "path": "/",
+      "expires": 1782932832,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "IDE",
+      "value": "AHWqTUkv5ie-nkdW5CifDRZUm2LXvgPBq0XWmVUTeFqP_B_0zDfj8tqhAixANqwK",
+      "domain": ".doubleclick.net",
+      "path": "/",
+      "expires": 1809716858.701446,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_cfuvid",
+      "value": "PvmVtkCTfn34NhYCea676WG.jlGF31ebekRdmAMESN4-1775156863.380478-1.0.1.1-kenjyNE5u3wKXsArDAuBVC8kHAMQRDMVso6wk6hwKDI",
+      "domain": ".magic.link",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "token",
+      "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjM3MzAwNzY5YTA3ZTA1MTE2ZjdlNTEzOGZhOTA5MzY4NWVlYmMyNDAiLCJ0eXAiOiJKV1QifQ.eyJlbnQiOnsicHJvbW8iOnsicyI6ImEiLCJlIjoxNzc3NjY3NTUyfX0sImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9ieXRlYnl0ZWdvLXByZCIsImF1ZCI6ImJ5dGVieXRlZ28tcHJkIiwiYXV0aF90aW1lIjoxNzc1MTU2ODc5LCJ1c2VyX2lkIjoiaXJaUDUwNEN6TWJ0YWI3WXZCWmNTazU1akZ1MSIsInN1YiI6ImlyWlA1MDRDek1idGFiN1l2QlpjU2s1NWpGdTEiLCJpYXQiOjE3NzUxNTY4NzksImV4cCI6MTc3NTE2MDQ3OSwiZW1haWwiOiJycHBob3RvZ3JhcGh5NDMwQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInJwcGhvdG9ncmFwaHk0MzBAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoiY3VzdG9tIn19.N_mffht9RuiCTv5qiTnyaVYUysH8hJUAKVjpnBqAS39_4LHonfMwdZ0jO4xRhhCTTLBjhbdgSHzkoNSgnXLos4M54jp2pThhBdnOmL_k-Hiv4UUM_LqN28lvXT2lU5nHaYksmuRvRQYPd8OIUz3PEC_Rw_qnzIMnIm_XKHpSKFl_7xrHcTpkCcP7RWAhE6oGphsC79AKrnpRXzc412lRANstg1Zgst3aoHEsLxA2evfvUGtnxJ4Kgk7xJNOq-LEPBMFuI42OTZMXX9P5PwMYC6JnhByb7DuK1LYF-aGDlVWuVKKS-dLvK9jd0dN3cLkX_l9KvZyfjxWcwLcbfVdY_A",
+      "domain": "bytebytego.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "csrf-token",
+      "value": "1775156880845%3A502389c4be3c8b62a7cd0b7bc25d51bb15ffd7b8e1707be02edbf427af839743",
+      "domain": "bytebytego.com",
+      "path": "/",
+      "expires": 1775243280.437896,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "_ga_JPXSGYZ0D5",
+      "value": "GS2.1.s1775156833$o1$g1$t1775156886$j7$l0$h0",
+      "domain": ".bytebytego.com",
+      "path": "/",
+      "expires": 1809716886.181361,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_dd_s",
+      "value": "logs=1&id=4548d51e-b801-46e8-9465-6e758df81efa&created=1775156860094&expire=1775157772504&rum=0",
+      "domain": "auth.magic.link",
+      "path": "/",
+      "expires": 1775157795,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None",
+      "partitionKey": "https://bytebytego.com",
+      "_crHasCrossSiteAncestor": true
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://bytebytego.com",
+      "localStorage": [
+        {
+          "name": "lastExternalReferrer",
+          "value": "empty"
+        },
+        {
+          "name": "_gcl_ls",
+          "value": "{\"schema\":\"gcl\",\"version\":1,\"gcl_ctr\":{\"value\":{\"value\":0,\"timeouts\":0,\"errors\":0,\"eopCount\":0,\"creationTimeMs\":1775156831978},\"expires\":1782932831978}}"
+        },
+        {
+          "name": "lastExternalReferrerTime",
+          "value": "1775156833450"
+        }
+      ]
+    },
+    {
+      "origin": "https://auth.magic.link",
+      "localStorage": [
+        {
+          "name": "rl_anonymous_id",
+          "value": "null"
+        },
+        {
+          "name": "encodedQueryParams",
+          "value": "eyJBUElfS0VZIjoicGtfbGl2ZV9BQzI1NkE0NEMzMjYxQ0ZCIiwiRE9NQUlOX09SSUdJTiI6Imh0dHBzOi8vYnl0ZWJ5dGVnby5jb20iLCJob3N0IjoiYXV0aC5tYWdpYy5saW5rIiwic2RrIjoibWFnaWMtc2RrIiwidmVyc2lvbiI6IjguMS4xIiwibG9jYWxlIjoiZW5fVVMifQ=="
+        },
+        {
+          "name": "htjs_user_id",
+          "value": "null"
+        },
+        {
+          "name": "embedded-store",
+          "value": "{\"state\":{\"fridgeAccessToken\":null,\"loginMethod\":null},\"version\":0}"
+        },
+        {
+          "name": "ld:655380969aaa1013a38ba51c:$diagnostics",
+          "value": "{\"dataSinceDate\":1775156860328,\"droppedEvents\":0,\"eventsInLastBatch\":0,\"streamInits\":[]}"
+        },
+        {
+          "name": "htev_anonymous_id",
+          "value": "null"
+        },
+        {
+          "name": "ajs_anonymous_id",
+          "value": "null"
+        },
+        {
+          "name": "htjs_anonymous_id",
+          "value": "\"f59a5daf-0f21-45ab-81a8-e8c3120b42de\""
+        },
+        {
+          "name": "htjs_sesh",
+          "value": "{\"id\":1775156860633,\"expiresAt\":1775158673217,\"timeout\":1800000,\"sessionStart\":false,\"autoTrack\":true}"
+        }
+      ]
+    }
+  ]
+}

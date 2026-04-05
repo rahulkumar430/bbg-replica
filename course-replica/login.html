@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #212121; color: #d4d4d4; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .login-card {
+      background: #2a2a2a; border: 1px solid #3a3a3a; border-radius: 12px;
+      padding: 2.5rem 2rem; width: 100%; max-width: 380px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .login-title {
+      font-size: 1.4rem; font-weight: 700; color: #e8e8e8;
+      text-align: center; margin-bottom: 0.4rem;
+    }
+    .login-subtitle {
+      font-size: 0.85rem; color: #888; text-align: center; margin-bottom: 1.8rem;
+    }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label {
+      display: block; font-size: 0.82rem; font-weight: 600;
+      color: #aaa; margin-bottom: 0.4rem; letter-spacing: 0.03em;
+    }
+    .form-group input {
+      width: 100%; padding: 0.65rem 0.9rem; font-size: 0.92rem;
+      background: #1a1a1a; border: 1px solid #444; border-radius: 8px;
+      color: #e0e0e0; outline: none; transition: border-color 0.2s;
+      font-family: inherit;
+    }
+    .form-group input:focus { border-color: #888; }
+    .login-btn {
+      width: 100%; padding: 0.7rem; font-size: 0.95rem; font-weight: 600;
+      background: #e0e0e0; color: #1a1a1a; border: none; border-radius: 8px;
+      cursor: pointer; transition: background 0.2s; font-family: inherit;
+      margin-top: 0.5rem;
+    }
+    .login-btn:hover { background: #fff; }
+    .login-btn:disabled { background: #555; color: #888; cursor: not-allowed; }
+    .error-msg {
+      color: #ef4444; font-size: 0.82rem; text-align: center;
+      margin-top: 0.8rem; min-height: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h1 class="login-title">Welcome Back</h1>
+    <p class="login-subtitle">Sign in to access your courses</p>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" autocomplete="username" required autofocus>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="login-btn" id="login-btn">Sign In</button>
+      <div class="error-msg" id="error-msg"></div>
+    </form>
+  </div>
+
+  <script>
+  (async function () {
+    // If already authenticated, redirect to courses
+    if (sessionStorage.getItem('bbg-auth-key')) {
+      window.location.replace('/home.html');
+      return;
+    }
+
+    // Handle bfcache: re-check auth when page is restored via back button
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted && sessionStorage.getItem('bbg-auth-key')) {
+        window.location.replace('/home.html');
+      }
+    });
+
+    // Load auth config
+    var config;
+    try {
+      var resp = await fetch('/auth-config.json');
+      config = await resp.json();
+    } catch (e) {
+      document.getElementById('error-msg').textContent = 'Auth config not found. Run encrypt-site.js first.';
+      return;
+    }
+
+    document.getElementById('login-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var btn = document.getElementById('login-btn');
+      var errEl = document.getElementById('error-msg');
+      errEl.textContent = '';
+      btn.disabled = true;
+      btn.textContent = 'Verifying...';
+
+      try {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        // Verify credentials by hashing username:password with SHA-256
+        var encoder = new TextEncoder();
+        var credData = encoder.encode(username + ':' + password);
+        var credHashBuf = await crypto.subtle.digest('SHA-256', credData);
+        var credHash = Array.from(new Uint8Array(credHashBuf))
+          .map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+
+        if (credHash !== config.credentialHash) {
+          errEl.textContent = 'Invalid username or password.';
+          btn.disabled = false;
+          btn.textContent = 'Sign In';
+          return;
+        }
+
+        // Derive encryption key via PBKDF2 (must match Node.js encrypt-site.js)
+        var salt = Uint8Array.from(atob(config.salt), function (c) { return c.charCodeAt(0); });
+        var keyMaterial = await crypto.subtle.importKey(
+          'raw', encoder.encode(password), 'PBKDF2', false, ['deriveKey']
+        );
+        var aesKey = await crypto.subtle.deriveKey(
+          { name: 'PBKDF2', salt: salt, iterations: config.iterations, hash: 'SHA-256' },
+          keyMaterial,
+          { name: 'AES-GCM', length: 256 },
+          true, ['decrypt']
+        );
+
+        // Export key and store in sessionStorage
+        var exportedKey = await crypto.subtle.exportKey('raw', aesKey);
+        var keyB64 = btoa(String.fromCharCode.apply(null, new Uint8Array(exportedKey)));
+        sessionStorage.setItem('bbg-auth-key', keyB64);
+
+        window.location.replace('/home.html');
+
+      } catch (err) {
+        errEl.textContent = 'Login failed: ' + err.message;
+        btn.disabled = false;
+        btn.textContent = 'Sign In';
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

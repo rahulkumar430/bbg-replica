@@ -1,0 +1,9 @@
+node_modules/
+output/
+.env
+*.log
+.DS_Store
+/course-replica-backup
+scraper.js
+/browser-data
+encrypt-site.js

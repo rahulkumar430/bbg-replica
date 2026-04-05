@@ -1,0 +1,38 @@
+{
+  "baseUrl": "https://bytebytego.com",
+  "linksFile": "./links.txt",
+  "outputDir": "./course-replica",
+  "imageDir": "./course-replica/images",
+  "sessionFile": "./session.json",
+  "delayBetweenRequests": 1500,
+  "topics": {
+    "coding-patterns": {
+      "hasSubchapters": true,
+      "displayName": "Coding Interview Patterns"
+    },
+    "tech-resume": {
+      "hasSubchapters": false,
+      "displayName": "How to Write a Good Resume"
+    },
+    "system-design-interview": {
+      "hasSubchapters": false,
+      "displayName": "System Design Interview"
+    },
+    "object-oriented-design-interview": {
+      "hasSubchapters": false,
+      "displayName": "Object-Oriented Design Interview"
+    },
+    "machine-learning-system-design-interview": {
+      "hasSubchapters": false,
+      "displayName": "Machine Learning System Design Interview"
+    },
+    "mobile-system-design-interview": {
+      "hasSubchapters": false,
+      "displayName": "Mobile System Design Interview"
+    },
+    "genai-system-design-interview": {
+      "hasSubchapters": false,
+      "displayName": "Generative AI System Design Interview"
+    }
+  }
+}
